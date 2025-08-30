@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griffin Kriebel - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('images/IMG_9356.JPG') center/cover fixed;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        h1, h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+
+        /* Introduction Section */
+        .intro-content {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro-highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #3498db;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1rem;
+            border: 2px dashed #dee2e6;
+            margin-bottom: 0;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-downloads {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .downloads-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0.8rem;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-1px);
+            color: white;
+            text-decoration: none;
+        }
+
+        .download-btn.disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .download-btn i {
+            font-size: 0.7rem;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            color: #555;
+        }
+
+        .skill-list li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #27ae60, #229954);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .contact-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-content {
+                padding: 2rem 1rem;
+            }
+
+            main {
+                margin-top: 120px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-content {
+                padding: 1rem;
+            }
+
+            .project-skills {
+                gap: 0.3rem;
+            }
+
+            .skill-tag {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .download-links {
+                gap: 0.5rem;
+            }
+
+            .download-btn {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation for sections */
+        .section-content {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-content:nth-child(2) { animation-delay: 0.1s; }
+        .section-content:nth-child(3) { animation-delay: 0.2s; }
+        .section-content:nth-child(4) { animation-delay: 0.3s; }
+        .section-content:nth-child(5) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">Griffin Kriebel</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Introduction Section -->
+        <section id="home">
+            <div class="container">
+                <div class="section-content">
+                    <h1>Griffin Kriebel</h1>
+                    <div class="intro-content">
+                        <p>Hello! I'm Griffin Kriebel, a 4th year Biological Systems Engineering student at UC Davis with a passion for creating sustainable solutions through innovative engineering.</p>
+                        
+                        <p>My experience spans robotic automation, renewable energy systems, and sustainable technology development. From developing wind turbines to working with robotic strawberry harvesting systems, I'm driven by the potential to revolutionize how we produce food and energy.</p>
+                        
+                        <p>Through hands-on internships and diverse projects, I've developed expertise in engineering systems that bridge biology, technology, and sustainability - from orchard maintenance to renewable grid design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-content">
+                    <h2>Projects</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-solar-panel"></i>
+                                Renewable Grid Design
+                            </div>
+                            <div class="project-content">
+                                <div class="project-icon">
+                                    <i class="fas fa-solar-panel"></i>
+                                </div>
+                                <div class="project-title">UC Davis Comprehensive Renewable Grid Design</div>
+                                <div class="project-date">March 2025 - June 2025</div>
+                                <div class="project-description">
+                                    Collaborated to develop a cost-optimized hybrid renewable energy system using NREL's System Advisor Model (SAM) to reduce grid dependency and meet annual energy demand. Processed hourly energy data in Excel to identify optimal wind-to-solar ratio.
+                                </div>
+                                
+                                <div class="project-skills">
+                                    <span class="skill-tag">NREL SAM</span>
+                                    <span class="skill-tag">Microsoft Excel</span>
+                                    <span class="skill-tag">Data Analysis</span>
+                                    <span class="skill-tag">Renewable Energy</span>
+                                    <span class="skill-tag">Grid Design</span>
+                                </div>
+
+                                <div class="project-downloads">
+                                    <div class="downloads-title">Project Files & Documentation:</div>
+                                    <div class="download-links">
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-pdf"></i>
+                                            Technical Report
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-excel"></i>
+                                            Excel Analysis
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-alt"></i>
+                                            SAM Files
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-wind"></i>
+                                Wind Turbine Prototype
+                            </div>
+                            <div class="project-content">
+                                <div class="project-icon">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <div class="project-title">Vertical Axis Wind Turbine</div>
+                                <div class="project-date">Dec 2024 - Present</div>
+                                <div class="project-description">
+                                    Designed and assembled a 3D-printed wind turbine prototype using Fusion 360. Collected and analyzed performance metrics including wing swept area, rated power, and power curve to optimize energy output and efficiency.
+                                </div>
+                                
+                                <div class="project-skills">
+                                    <span class="skill-tag">Fusion 360</span>
+                                    <span class="skill-tag">3D Printing</span>
+                                    <span class="skill-tag">Wind Energy</span>
+                                    <span class="skill-tag">Performance Analysis</span>
+                                    <span class="skill-tag">CAD Design</span>
+                                </div>
+
+                                <div class="project-downloads">
+                                    <div class="downloads-title">Project Files & Documentation:</div>
+                                    <div class="download-links">
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-cube"></i>
+                                            CAD Files
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-print"></i>
+                                            STL Files
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-chart-line"></i>
+                                            Performance Data
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-bicycle"></i>
+                                E-bike Conversion
+                            </div>
+                            <div class="project-content">
+                                <div class="project-icon">
+                                    <i class="fas fa-bicycle"></i>
+                                </div>
+                                <div class="project-title">Bike to E-bike Conversion</div>
+                                <div class="project-date">Sep 2024 - Jan 2025</div>
+                                <div class="project-description">
+                                    Engineered and 3D-printed custom motor mounts for electric bike conversion. Applied iterative design process and tested mechanical-electrical integration for reliable performance.
+                                </div>
+                                
+                                <div class="project-skills">
+                                    <span class="skill-tag">3D Printing</span>
+                                    <span class="skill-tag">CAD Design</span>
+                                    <span class="skill-tag">Electric Motors</span>
+                                    <span class="skill-tag">Mechanical Integration</span>
+                                    <span class="skill-tag">Testing</span>
+                                </div>
+
+                                <div class="project-downloads">
+                                    <div class="downloads-title">Project Files & Documentation:</div>
+                                    <div class="download-links">
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-cube"></i>
+                                            CAD Files
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-print"></i>
+                                            STL Files
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-alt"></i>
+                                            Assembly Guide
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-sun"></i>
+                                Solar Dehydrator System
+                            </div>
+                            <div class="project-content">
+                                <div class="project-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="project-title">Solar Dehydrator</div>
+                                <div class="project-date">Sep 2024 - Dec 2024</div>
+                                <div class="project-description">
+                                    Collaborated on a solar-powered food dehydration system. Analyzed data on moisture loss and presented efficiency findings in a final report using sustainable design principles.
+                                </div>
+                                
+                                <div class="project-skills">
+                                    <span class="skill-tag">Solar Energy</span>
+                                    <span class="skill-tag">Data Analysis</span>
+                                    <span class="skill-tag">Sustainable Design</span>
+                                    <span class="skill-tag">Food Processing</span>
+                                    <span class="skill-tag">Technical Reporting</span>
+                                </div>
+
+                                <div class="project-downloads">
+                                    <div class="downloads-title">Project Files & Documentation:</div>
+                                    <div class="download-links">
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-pdf"></i>
+                                            Final Report
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-chart-line"></i>
+                                            Performance Data
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-tools"></i>
+                                            Design Plans
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-home"></i>
+                                Site Design Layout
+                            </div>
+                            <div class="project-content">
+                                <div class="project-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="project-title">Sustainable Site Design</div>
+                                <div class="project-date">May 2024 - June 2024</div>
+                                <div class="project-description">
+                                    Proposed eco-friendly housing development for repurposing a PG&E Yard in Davis, CA. Designed technical site layout using sustainable principles and presented to stakeholders.
+                                </div>
+                                
+                                <div class="project-skills">
+                                    <span class="skill-tag">Site Planning</span>
+                                    <span class="skill-tag">Sustainable Design</span>
+                                    <span class="skill-tag">Environmental Planning</span>
+                                    <span class="skill-tag">Urban Development</span>
+                                    <span class="skill-tag">Stakeholder Presentation</span>
+                                </div>
+
+                                <div class="project-downloads">
+                                    <div class="downloads-title">Project Files & Documentation:</div>
+                                    <div class="download-links">
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-pdf"></i>
+                                            Design Report
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-map"></i>
+                                            Site Plans
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-presentation"></i>
+                                            Presentation
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-gamepad"></i>
+                                MATLAB GUI Application
+                            </div>
+                            <div class="project-content">
+                                <div class="project-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="project-title">MATLAB Blackjack App</div>
+                                <div class="project-date">Nov 2023 - Dec 2023</div>
+                                <div class="project-description">
+                                    Developed an interactive blackjack game using MATLAB's GUI framework. Met all functionality goals and documented coding process in GitHub with comprehensive version control.
+                                </div>
+                                
+                                <div class="project-skills">
+                                    <span class="skill-tag">MATLAB</span>
+                                    <span class="skill-tag">GUI Development</span>
+                                    <span class="skill-tag">Programming</span>
+                                    <span class="skill-tag">GitHub</span>
+                                    <span class="skill-tag">Version Control</span>
+                                </div>
+
+                                <div class="project-downloads">
+                                    <div class="downloads-title">Project Files & Documentation:</div>
+                                    <div class="download-links">
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fab fa-github"></i>
+                                            GitHub Repo
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-code"></i>
+                                            MATLAB Code
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-alt"></i>
+                                            Documentation
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-robot"></i>
+                                Combat Robot Design
+                            </div>
+                            <div class="project-content">
+                                <div class="project-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="project-title">VEX Battlebot</div>
+                                <div class="project-date">Aug 2021 - May 2022</div>
+                                <div class="project-description">
+                                    Co-designed and programmed a combat robot using Fusion 360 and C++ for a regional competition. Integrated mechanical design with programming for autonomous and manual control modes.
+                                </div>
+                                
+                                <div class="project-skills">
+                                    <span class="skill-tag">Fusion 360</span>
+                                    <span class="skill-tag">C++</span>
+                                    <span class="skill-tag">Robotics</span>
+                                    <span class="skill-tag">Mechanical Design</span>
+                                    <span class="skill-tag">Programming</span>
+                                </div>
+
+                                <div class="project-downloads">
+                                    <div class="downloads-title">Project Files & Documentation:</div>
+                                    <div class="download-links">
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-cube"></i>
+                                            CAD Files
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-file-code"></i>
+                                            C++ Code
+                                        </a>
+                                        <a href="#" class="download-btn disabled">
+                                            <i class="fas fa-video"></i>
+                                            Competition Video
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Coursework Section -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-content">
+                    <h2>Skills & Coursework</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Technical Software</h3>
+                            <ul class="skill-list">
+                                <li>Fusion 360</li>
+                                <li>MATLAB</li>
+                                <li>AutoCAD</li>
+                                <li>SolidWorks</li>
+                                <li>Microsoft Excel</li>
+                                <li>C++</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Data & Analysis</h3>
+                            <ul class="skill-list">
+                                <li>Data Collection</li>
+                                <li>Statistical Analysis</li>
+                                <li>Technical Writing</li>
+                                <li>Survey Tools</li>
+                                <li>Performance Metrics</li>
+                                <li>Research Methods</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <div class="skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Professional Skills</h3>
+                            <ul class="skill-list">
+                                <li>Team Collaboration</li>
+                                <li>Creative Problem Solving</li>
+                                <li>Adaptable Communication</li>
+                                <li>Project Management</li>
+                                <li>Leadership</li>
+                                <li>Time Management</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category">
+                            <div class="skill-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Relevant Coursework</h3>
+                            <ul class="skill-list">
+                                <li>Mechanical Engineering</li>
+                                <li>Environmental Engineering</li>
+                                <li>Biotechnology Engineering</li>
+                                <li>Renewable Energy Systems</li>
+                                <li>Agricultural Technology</li>
+                                <li>Systems Engineering</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-content">
+                    <h2>Experience</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-title">Agricultural Robotics Intern</div>
+                            <div class="project-date">June 2024 - July 2024</div>
+                            <div class="project-description">
+                                <strong>Plant Sciences Inc., Manteca, CA</strong><br>
+                                • Collected field data to evaluate robotic performance in strawberry flower elimination<br>
+                                • Proposed design modifications to improve mechanical reliability and operational efficiency<br>
+                                • Managed GPS data for tractor-mounted robot navigation<br>
+                                • Digitized field maps using Microsoft Excel for improved logistics
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-apple-alt"></i>
+                            </div>
+                            <div class="project-title">Orchard Maintenance Intern</div>
+                            <div class="project-date">June 2023 - Sep 2023</div>
+                            <div class="project-description">
+                                <strong>Weaver's Orchard, Morgantown, PA</strong><br>
+                                • Designed and implemented irrigation systems for fruit and vegetable fields<br>
+                                • Operated and maintained agricultural machinery across a 125-acre orchard<br>
+                                • Performed crop care tasks including pruning, thinning, and harvesting<br>
+                                • Streamlined operations within demanding agricultural timelines
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="project-title">Line Cook</div>
+                            <div class="project-date">Apr 2021 - Dec 2022</div>
+                            <div class="project-description">
+                                <strong>Austin's Restaurant and Bar, West Lawn, PA</strong><br>
+                                • Managed kitchen operations in a fast-paced team setting while maintaining academic performance<br>
+                                • Promoted within two weeks for reliability, adaptability, and initiative<br>
+                                • Developed strong time management and multitasking skills under pressure<br>
+                                • Demonstrated commitment to quality and teamwork in demanding environment
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-content">
+                    <h2>Get In Touch</h2>
+                    <div class="contact-content">
+                        <p>I'm always interested in discussing new opportunities, collaborating on projects, or simply connecting with fellow engineers and sustainability enthusiasts.</p>
+                        
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Email</h3>
+                                <a href="mailto:gskriebel@ucdavis.edu">gskriebel@ucdavis.edu</a>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <h3>LinkedIn</h3>
+                                <a href="https://linkedin.com/in/griffin-kriebel" target="_blank">linkedin.com/in/griffin-kriebel</a>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <h3>GitHub</h3>
+                                <a href="https://github.com/G4kriebel" target="_blank">github.com/G4kriebel</a>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h3>Phone</h3>
+                                <a href="tel:+14845771804">(484) 577-1804</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Griffin Kriebel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to navigation links based on scroll position
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
